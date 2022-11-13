@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>592</width>
+    <height>603</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Région :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="5">
+    <widget class="QComboBox" name="cb_region">
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Département :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="5">
+    <widget class="QComboBox" name="cb_departement">
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>Zone de vent :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="5">
+    <widget class="QLineEdit" name="le_zone"/>
+   </item>
+   <item row="3" column="0" colspan="3">
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>vent de référence (m/s) :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="5">
+    <widget class="QLineEdit" name="le_charge_caract"/>
+   </item>
+   <item row="4" column="0" colspan="5">
+    <widget class="QLabel" name="label_5">
+     <property name="text">
+      <string>Charge vent caractéristique (kN/m2) :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="5">
+    <widget class="QLineEdit" name="le_charge_caract_2"/>
+   </item>
+   <item row="5" column="5" rowspan="2">
+    <widget class="QLineEdit" name="le_charge_caract_3"/>
+   </item>
+   <item row="7" column="1" colspan="2">
+    <widget class="QLabel" name="label_8">
+     <property name="text">
+      <string>Zmin :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="4" colspan="2">
+    <widget class="QLineEdit" name="le_charge_caract_4"/>
+   </item>
+   <item row="9" column="0" colspan="4">
+    <widget class="QLabel" name="label_9">
+     <property name="text">
+      <string>Catégorie de terrain (rugisité) :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="4" colspan="2">
+    <widget class="QLineEdit" name="le_charge_caract_5">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="6" rowspan="3">
+    <widget class="QLabel" name="label_6">
+     <property name="maximumSize">
+      <size>
+       <width>400</width>
+       <height>450</height>
+      </size>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>images/carte_fr_vent.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="0" colspan="3">
+    <widget class="QLabel" name="label_10">
+     <property name="text">
+      <string>vent moyen (m/s)</string>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="4" colspan="2">
+    <widget class="QLineEdit" name="le_charge_caract_6"/>
+   </item>
+   <item row="11" column="0" colspan="3">
+    <widget class="QLabel" name="label_11">
+     <property name="text">
+      <string>coefficient de rugosité :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="3" colspan="3">
+    <widget class="QLineEdit" name="le_charge_caract_7"/>
+   </item>
+   <item row="12" column="0" colspan="3">
+    <widget class="QLabel" name="label_12">
+     <property name="text">
+      <string>coefficient d'orographie :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="12" column="3" colspan="3">
+    <widget class="QLineEdit" name="le_charge_caract_8"/>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="label_7">
+     <property name="text">
+      <string>z0 :</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

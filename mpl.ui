@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1143</width>
+    <height>661</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="maximumSize">
+       <size>
+        <width>800</width>
+        <height>2500</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTabWidget::tab-bar {
+   border: 1px solid gray;
+}
+
+QTabBar::tab {
+  background: gray;
+  color: white;
+  padding: 10px;
+ }
+
+ QTabBar::tab:selected {
+  background: lightgray;
+ }
+</string>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="icon">
+        <iconset>
+         <normaloff>icons/beam_rect.png</normaloff>icons/beam_rect.png</iconset>
+       </attribute>
+       <attribute name="title">
+        <string>Propriétés</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>20</horstretch>
+            <verstretch>60</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>130</width>
+            <height>190</height>
+           </size>
+          </property>
+          <property name="baseSize">
+           <size>
+            <width>20</width>
+            <height>60</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap>images/section.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QFrame" name="frame">
+          <property name="maximumSize">
+           <size>
+            <width>5000</width>
+            <height>200</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="1" column="0" colspan="2">
+            <widget class="QLabel" name="label_4">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>hauteur (mm) :</string>
+             </property>
+             <property name="scaledContents">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="le_h">
+             <property name="text">
+              <string>10</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1" colspan="2">
+            <widget class="QLineEdit" name="le_b">
+             <property name="text">
+              <string>10</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_5">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>base (mm) :</string>
+             </property>
+             <property name="scaledContents">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>Type de section :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QComboBox" name="comboBox">
+             <property name="styleSheet">
+              <string notr="true">color: black</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Rectangulaire</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Circulaire</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>IPE</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HEB</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>UPN</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QFrame" name="frame_2">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>160</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_7">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Iy (mm4) :</string>
+             </property>
+             <property name="scaledContents">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLineEdit" name="le_Iz">
+             <property name="text">
+              <string>-</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_8">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Aire (mm2) :</string>
+             </property>
+             <property name="scaledContents">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1" colspan="2">
+            <widget class="QLineEdit" name="le_Iy">
+             <property name="text">
+              <string>-</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="le_A">
+             <property name="text">
+              <string>-</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="2">
+            <widget class="QLabel" name="label_6">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Iz (mm4) :</string>
+             </property>
+             <property name="scaledContents">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="2">
+         <widget class="QGroupBox" name="groupBox_4">
+          <property name="title">
+           <string>Choix du matériaux :</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_18">
+             <property name="text">
+              <string>Type bois :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="cb_type_bois">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 0, 0);</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Résineux (EN 338)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Feuillus (EN 338)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lamelé collé</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_19">
+             <property name="text">
+              <string>Classe de résistance :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="cb_classe_resistance">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 0, 0);</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QPushButton" name="pb_calcul_section">
+          <property name="text">
+           <string>Calculer les propriétés de section</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>images/calculator.png</normaloff>images/calculator.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="icon">
+        <iconset>
+         <normaloff>icons/opt.png</normaloff>icons/opt.png</iconset>
+       </attribute>
+       <attribute name="title">
+        <string>Chargements</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="1" column="0">
+         <widget class="QFrame" name="frame_3">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_7">
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_16">
+             <property name="text">
+              <string>Entraxe (m) :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="le_portee">
+             <property name="text">
+              <string>5</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_12">
+             <property name="text">
+              <string>portée (m) :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="le_entraxe">
+             <property name="text">
+              <string>0.5</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="2" alignment="Qt::AlignHCenter">
+            <widget class="QLabel" name="label_15">
+             <property name="maximumSize">
+              <size>
+               <width>250</width>
+               <height>180</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap>images/iso_view.png</pixmap>
+             </property>
+             <property name="scaledContents">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QFrame" name="frame_4">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>G (kN/m2) :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="cb_Q">
+             <property name="styleSheet">
+              <string notr="true">color: black</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Catégorie A : 1.5</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Catégorie B : 2.5</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Catégorie C : 4.0</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="le_G">
+             <property name="text">
+              <string>1</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>Q (kN/m2) :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="2" alignment="Qt::AlignHCenter">
+            <widget class="QLabel" name="label">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>250</width>
+               <height>180</height>
+              </size>
+             </property>
+             <property name="baseSize">
+              <size>
+               <width>100</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap>images/side_view.png</pixmap>
+             </property>
+             <property name="scaledContents">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QGroupBox" name="groupBox">
+          <property name="title">
+           <string>Environnement</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLabel" name="label_11">
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Classe de service :</string>
+             </property>
+             <property name="scaledContents">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_2">
+             <property name="styleSheet">
+              <string notr="true">color: black</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Classe 1 : Intérieur (&lt; 12% d'humidité)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Classe 2 : Extérieur arbitré (&lt; 20% d'humidité)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Classe 3 : Extérieur</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QPushButton" name="pb_solive">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Calcul</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>icons/calculator.png</normaloff>icons/calculator.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="3">
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="title">
+           <string>Résultats</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_8">
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="le_contrainte_max"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_14">
+             <property name="text">
+              <string>Contrainte de flexion (MPa) :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="le_moment_max"/>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_13">
+             <property name="text">
+              <string>Moment de flexion maximum (kN.m) :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="le_t_f"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_17">
+             <property name="text">
+              <string>Taux de travail en flexion (%) :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="2">
+            <widget class="QTableWidget" name="tw_results">
+             <column>
+              <property name="text">
+               <string>Type</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Contrainte</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Taux de travail (%)</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>Page</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_10">
+        <item row="0" column="0">
+         <widget class="snow_widget" name="snow_widget" native="true"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>1000</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="title">
+       <string>Résultats</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_9">
+       <item row="0" column="0">
+        <widget class="MplWidget" name="MplWidget" native="true"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTreeWidget" name="treeWidget">
+      <property name="minimumSize">
+       <size>
+        <width>250</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>300</width>
+        <height>1000</height>
+       </size>
+      </property>
+      <property name="animated">
+       <bool>true</bool>
+      </property>
+      <property name="allColumnsShowFocus">
+       <bool>false</bool>
+      </property>
+      <property name="wordWrap">
+       <bool>false</bool>
+      </property>
+      <property name="headerHidden">
+       <bool>false</bool>
+      </property>
+      <attribute name="headerCascadingSectionResizes">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Liste des projets</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+      </column>
+      <item>
+       <property name="text">
+        <string>Projet 1</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icons/solive.png</normaloff>icons/solive.png</iconset>
+       </property>
+       <property name="flags">
+        <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+       </property>
+       <item>
+        <property name="text">
+         <string>Calcul solive 1</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>icons/board.png</normaloff>icons/board.png</iconset>
+        </property>
+        <item>
+         <property name="text">
+          <string>Calcul sabot 1</string>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>images/sabot.jpg</normaloff>images/sabot.jpg</iconset>
+         </property>
+        </item>
+       </item>
+       <item>
+        <property name="text">
+         <string>Calcul arba 1</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>icons/maison.png</normaloff>icons/maison.png</iconset>
+        </property>
+       </item>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1143</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuVisualisation">
+    <property name="title">
+     <string>Visualisation</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuAide">
+    <property name="title">
+     <string>Aide</string>
+    </property>
+   </widget>
+   <addaction name="menuMenu"/>
+   <addaction name="menuVisualisation"/>
+   <addaction name="menuAide"/>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MplWidget</class>
+   <extends>QWidget</extends>
+   <header>mplwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>snow_widget</class>
+   <extends>QWidget</extends>
+   <header>snow_widget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
