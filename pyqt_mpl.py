@@ -108,28 +108,17 @@ class Sheet(QMainWindow, From_Main):
         print(self.treeWidget.currentItem())
 
         self.treeWidget.currentChanged = self.selection_changed
-        self.setContextMenuPolicy(Qt.CustomContextMenu)
-        self.customContextMenuRequested.connect(self.popupmenu)
 
-    def popupmenu(self, position):
+        self.treeWidget.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.treeWidget.customContextMenuRequested.connect(self.menuContextuelAlbum)
 
-        menu = QMenu(self)
-
-        actionDepliertout = menu.addAction("Déplier tout")
-        # actionDepliertout.triggered.connect(self.expandAll)
-
-        actionRepliertout = menu.addAction("Replier tout")
-        # actionRepliertout.triggered.connect(self.collapseAll)
-
-        menu.addSeparator()
-
-        actionDeplier = menu.addAction("Déplier")
-        actionDeplier.triggered.connect(partial(self.expandItem, self.currentItem()))
-
-        actionReplier = menu.addAction("Replier")
-        actionReplier.triggered.connect(partial(self.collapseItem, self.currentItem()))
-
-        menu.exec_(self.mapToGlobal(position))
+    def menuContextuelAlbum(self, event):
+        self.menu_contextuelAlb = QMenu(self.treeWidget)
+        ajoutFileAtt = self.menu_contextuelAlb.addAction("Ajouter l'album à la file d'attente")
+        action2 = self.menu_contextuelAlb.exec_(self.treeWidget.mapToGlobal(event))
+        if action2 is not None:
+            if action2 == ajoutFileAtt:
+                self.addAlbumlistAtt()
 
     def selection_changed(self, new, old):
         # print("selection_changed:", new, old)
