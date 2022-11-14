@@ -8,7 +8,7 @@ from mesh import Mesh
 
 ### PyQt5 Modules ###
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QWidget, QColorDialog
-from PyQt5.QtWidgets import QMessageBox, QHeaderView, QMenu, QComboBox, QTableWidgetItem
+from PyQt5.QtWidgets import QMessageBox, QHeaderView, QMenu, QComboBox, QTableWidgetItem, QTreeWidgetItem
 from PyQt5.QtCore import QTimer, QEvent, QRect, Qt
 from PyQt5.QtGui import QIcon, QCursor, QColor, QPalette
 from PyQt5.uic import loadUiType, loadUi
@@ -18,69 +18,11 @@ from matplotlib.figure import Figure
 
 from functools import partial
 
+from calcul_mecanique import *
+from module_projet import *
+
 scriptDir = dirname(realpath(__file__))
 From_Main, _ = loadUiType(join(dirname(__file__), "mpl.ui"))
-
-
-
-class Section():
-    def __init__(self, height, width):
-        self.height = height
-        self.width = width
-
-        self.inertia_y = self.height * self.width ** 3 / 12
-        self.inertia_z = self.width * self.height ** 3 / 12
-        self.area = self.height * self.width
-
-    def get_section_area(self):
-        return round(self.area, 2)
-
-    def get_inertia_y(self):
-        return round(self.inertia_y, 2)
-
-    def get_inertia_z(self):
-        return round(self.inertia_z, 2)
-
-
-class Material():
-    def __init__(self, classe):
-        self.classe = classe
-        # http://www.freelem.com/eurocode/eurocode5/ELU-bois.htm
-        self.dict_resistance = {"C24" :
-                                    {"fm,k" : 24,
-                                     "ft,0,k" : 14,
-                                     "ft,90,k" : 0.5,
-                                     "fc,0,k" : 21,
-                                     "fc,90,k" : 2.5,
-                                     "fv,k" : 2.5,
-                                     "E0,mean" : 11,
-                                     "Gmean" : 0.69,
-                                     "rho_k" : 350}
-                                }
-
-
-class Calcul_solive():
-    def __init__(self, section, Q, G, portee, entraxe, W = 0, S = 0):
-        self.section = section
-        self.Q = Q * 1000 # convert from kN to N
-        self.G = G * 1000 # convert from kN to N
-        self.wind_load = W * 1000 # convert from kN to N
-        self.snow_load = S * 1000 # convert from kN to N
-        self.entraxe = entraxe
-        self.portee = portee
-
-    def calculate_load(self):
-        q = self.Q * self.entraxe
-        g = self.G * self.entraxe
-        self.total_load = q + g
-
-        self.moment_max = self.total_load * self.portee ** 2 / 8
-        self.sigma_flexion_max = self.moment_max / self.section.inertia_z * self.section.height / 2
-        self.sigma_cisaillement_max = self.total_load * self.portee / self.section.area
-
-        return round(self.moment_max / 1000, 2), round(self.sigma_flexion_max, 2) # convert from N to kN
-
-
 
 
 def catch_exceptions(type, value, traceback):
@@ -112,13 +54,41 @@ class Sheet(QMainWindow, From_Main):
         self.treeWidget.setContextMenuPolicy(Qt.CustomContextMenu)
         self.treeWidget.customContextMenuRequested.connect(self.menuContextuelAlbum)
 
+        self.update_tree("t")
+
+
+    def update_tree(self, items):
+        # test
+        projet_maule = Projet("maule")
+
+        arba = Calcul("arba_centrale", "arba")
+        solive = Calcul("solive", "solive")
+
+        projet_maule.add_calcul(arba)
+        projet_maule.add_calcul(solive)
+
+        L = projet_maule.get_calcul()
+
+        self.treeWidget.clear()
+        self.treeWidget.setHeaderLabels(['test'])
+        item = QTreeWidgetItem(self.treeWidget, [projet_maule.name])
+        item.setIcon(0, QIcon('./icons/solive.png'))
+        for calcul in L:
+            sub_item = QTreeWidgetItem([calcul.name])
+            sub_item.setIcon(0, QIcon('./icons/maison.png'))
+            item.addChild(sub_item)
+
+        self.treeWidget.addTopLevelItem(item)
+
     def menuContextuelAlbum(self, event):
         self.menu_contextuelAlb = QMenu(self.treeWidget)
-        ajoutFileAtt = self.menu_contextuelAlb.addAction("Ajouter l'album à la file d'attente")
+        ajoutFileAtt = self.menu_contextuelAlb.addAction("Ajouter un projet")
         action2 = self.menu_contextuelAlb.exec_(self.treeWidget.mapToGlobal(event))
         if action2 is not None:
             if action2 == ajoutFileAtt:
-                self.addAlbumlistAtt()
+                item = QTreeWidgetItem(self.treeWidget, ["projet_2"])
+                item.setIcon(0, QIcon('./icons/solive.png'))
+                self.treeWidget.addTopLevelItem(item)
 
     def selection_changed(self, new, old):
         # print("selection_changed:", new, old)
